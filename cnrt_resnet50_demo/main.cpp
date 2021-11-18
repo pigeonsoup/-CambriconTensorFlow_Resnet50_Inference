@@ -290,7 +290,7 @@ int main(int argc,char *argv[])
 					outputTypeS[output_idx],
 					reinterpret_cast<void*>(outputCpuNchwPtrS[output_idx]),
 					CNRT_FLOAT32,
-					outputSizeS[output_idx]/4,nullptr));		
+					outputSizeS[output_idx]/2,nullptr));		
 	}
 	free(dimValues);
 

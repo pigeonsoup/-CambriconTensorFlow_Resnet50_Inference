@@ -12,6 +12,7 @@ from tensorflow.python.framework import tensor_shape
 from tensorflow.core.framework import attr_value_pb2
 from tensorflow.core.framework import node_def_pb2
 from tensorflow.core.framework import graph_pb2
+from tensorflow.core.protobuf import config_pb2
 
 tf.app.flags.DEFINE_integer(
 	'batch_size', 1, 'The number of samples in each batch.')
@@ -71,6 +72,7 @@ def main():
     config.mlu_options.core_num = 16
 #    config.mlu_options.convert_graph = True
     config.mlu_options.core_version = 'MLU270'
+    config.mlu_options.cast_strategy = config_pb2.MLUOptions.ONHOST
     if FLAGS.mode=='offline':
         config.mlu_options.save_offline_model = True
         config.mlu_options.offline_model_name = "resnet50_v1.cambricon"
